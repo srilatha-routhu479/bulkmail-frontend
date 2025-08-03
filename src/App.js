@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   const [msg, setMsg] = useState('');
   const [emaillist, setEmaillist] = useState([]);
-  const [isSending, setIsSending] = useState(false); 
+  const [isSending, setIsSending] = useState(false);
 
   function handlemsg(event) {
     setMsg(event.target.value);
@@ -44,10 +44,10 @@ function App() {
       return;
     }
 
-    setIsSending(true); 
+    setIsSending(true);
 
     axios
-      .post('http://localhost:5000/sendemail', {
+      .post('https://bulkmail-backend-1thv.onrender.com/sendemail', {
         msg: msg,
         emaillist: emaillist,
       })
@@ -60,7 +60,7 @@ function App() {
         alert('Failed to send email');
       })
       .finally(() => {
-        setIsSending(false); 
+        setIsSending(false);
       });
   }
 
@@ -109,3 +109,4 @@ function App() {
 }
 
 export default App;
+
